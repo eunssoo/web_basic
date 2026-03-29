@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>영화 예매 페이지</title>
+</head>
+<body>
+
+    <h1>영화 예매 페이지</h1>
+
+    <!-- 다른 페이지로 이동하는 링크 -->
+    <a href="index.html">홈</a> |
+    <a href="survey.html">선호도 조사</a> |
+    <a href="result.html">예매 결과 예시</a>
+
+    <hr>
+
+    <!-- 예매 폼 시작 -->
+    <form action="result.html">
+
+        <!-- 기본 정보 -->
+        <fieldset>
+            <legend>기본 정보</legend>
+
+            <p>
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name">
+            </p>
+
+            <p>
+                <label for="email">이메일:</label>
+                <input type="email" id="email" name="email">
+            </p>
+        </fieldset>
+
+        <!-- 관람 정보 -->
+        <fieldset>
+            <legend>관람 정보</legend>
+
+            <p>
+                <label for="date">관람 날짜:</label>
+                <input type="date" id="date" name="date">
+            </p>
+
+            <p>
+                <label for="time">관람 시간:</label>
+                <select id="time" name="time">
+                    <option value="">시간 선택</option>
+                    <option value="10:00">10:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="19:00">19:00</option>
+                </select>
+            </p>
+
+            <p>
+                영화 선택:
+                <input type="radio" id="movie1" name="movie" value="컨택트">
+                <label for="movie1">컨택트</label>
+
+                <input type="radio" id="movie2" name="movie" value="멜랑콜리아">
+                <label for="movie2">멜랑콜리아</label>
+            </p>
+
+            <p>
+                좌석 선택:
+                <input type="checkbox" id="seat1" name="seat" value="일반석">
+                <label for="seat1">일반석</label>
+
+                <input type="checkbox" id="seat2" name="seat" value="프리미엄석">
+                <label for="seat2">프리미엄석</label>
+
+                <input type="checkbox" id="seat3" name="seat" value="커플석">
+                <label for="seat3">커플석</label>
+            </p>
+
+            <p>
+                <label for="people">인원 수:</label>
+                <input type="number" id="people" name="people" min="1" max="8">
+            </p>
+
+            <p>
+                <label for="request">요청사항:</label><br>
+                <textarea id="request" name="request" rows="5" cols="40"></textarea>
+            </p>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="예매 정보 제출">
+            <input type="reset" value="다시 작성">
+        </p>
+
+    </form>
+    <!-- 예매 폼 끝 -->
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>영화 선호도 조사</h1>
+
+    <a href="index.html">홈</a> |
+    <a href="reserve.html">예매하기</a>
+
+    <hr>
+
+    <form action="result.html">
+        <table border="1">
+            <tr>
+                <th>질문</th>
+                <th>응답</th>
+            </tr>
+
+            <tr>
+                <td>좋아하는 장르</td>
+                <td>
+                    <select name="genre">
+                        <option value="애니메이션">애니메이션</option>
+                        <option value="SF">SF</option>
+                        <option value="드라마">드라마</option>
+                        <option value="로맨스">로맨스</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>한 달 평균 영화 관람 횟수</td>
+                <td>
+                    <input type="number" name="count" min="0" max="10" value="2">
+                </td>
+            </tr>
+
+            <tr>
+                <td>영화관 선택 기준</td>
+                <td>
+                    <input type="checkbox" id="price" name="reason" value="가격">
+                    <label for="price">가격</label>
+
+                    <input type="checkbox" id="distance" name="reason" value="거리">
+                    <label for="distance">거리</label>
+
+                    <input type="checkbox" id="facility" name="reason" value="시설">
+                    <label for="facility">시설</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>선호 관람 시간</td>
+                <td>
+                    <input type="radio" id="day" name="time" value="낮">
+                    <label for="day">낮</label>
+
+                    <input type="radio" id="night" name="time" value="저녁">
+                    <label for="night">저녁</label>
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            <input type="submit" value="조사 제출">
+        </p>
+    </form>
+</body>
+</html>
