@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        div {
+            position: absolute;
+            width: 200px ;
+            height: 200px ;
+            left: 50px ;
+        }
+        .div01 {
+            background-color: red ;
+            z-index: 10;
+        }
+        .div02 {
+            position: fixed;
+            left: 200px;
+            background-color: blue ;
+
+        }
+        .div03 {
+            width: 275px;
+            height: 275px;
+            top: 50px;
+            left: 100px;
+            background-color: gray;
+            border: width 50px; ;
+            border-color: aqua;
+            border-style: solid;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="div01">첫번째 사각형</div>
+    <div class="div02">두번째 사각형</div>
+    <div class="div03">
+        <div class="div01"></div>
+    </div>
+</body>
+</html>

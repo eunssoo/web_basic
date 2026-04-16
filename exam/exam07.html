@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가로 목록 만들기</title>
+    <style>
+        ul li {
+            list-style-type: none;
+            float: left;
+            margin-right: 20px;
+        }
+        li:first-child{
+            color: aqua;
+        }
+        li:last-child{
+            color: crimson;
+        }
+        li:nth-child(2n){
+            background-color: deeppink;
+        }
+        a.link {
+            text-decoration: none;
+        }
+        a:visited{
+            color: darkorange;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        div {
+            clear: both;
+        }
+        h2:first-child {
+            background-color: gold;
+        }
+        h2:last-child {
+            background-color: green;
+        }
+
+        p::first-line {
+            text-decoration: underline;
+        }
+        p::first-letter {
+            font-size: 3em;
+        }
+        p::selection {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>ONE</li>
+        <li>TWO</li>
+        <li><a href="http://www.naver.com" target="_blank">THREE</a></li>
+        <li>FOUR</li>
+        <li>FIVE</li>
+    </ul>
+    <div>
+        <!-- <h1>hi</h1> -->
+        <h2>Header</h2>
+        <h1>hi</h1>
+        <h2>Header</h2>
+        <h2>Header</h2>
+        <h1>hi</h1>
+        <h2>Header</h2>
+        <h2>Header</h2>
+    
+    </div>
+    <p>
+        야르야르야르야르
+        야르야르야르야르
+        야르야르야르야르
+        야르야르야르야르
+    </p>
+</body>
+</html>
