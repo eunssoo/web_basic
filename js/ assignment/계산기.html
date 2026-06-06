@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>계산기</title>
+
+    <script>
+        window.onload = function() {
+            let display = document.getElementById("display");
+            let buttons = document.querySelector(".buttons");
+
+            // 연산자 목록
+            let oper = ["+", "-", "*", "/"];
+
+            // 버튼 영역을 클릭했을 때 실행
+            buttons.addEventListener("click", function(e) {
+                // 클릭한 대상이 버튼이 아니면 무시
+                if (e.target.tagName !== "BUTTON") {
+                    return;
+                }
+
+                // 클릭한 버튼의 value 값 가져오기
+                let value = e.target.value;
+
+                // c 버튼
+                if (value === "c") {
+                    display.value = "";
+                    return;
+                }
+
+                // = 버튼
+                if (value === "=") {
+                    calculate();
+                    return;
+                }
+
+                // 현재 화면의 마지막 글자
+                let lastchar = display.value[display.value.length - 1];
+
+                // 화면이 비어 있는데 연산자를 먼저 누르면 입력 방지
+                if (display.value.length === 0 && oper.includes(value)) {
+                    return;
+                }
+
+                // 연산자가 연속으로 입력되면 입력 방지
+                if (oper.includes(lastchar) && oper.includes(value)) {
+                    return;
+                }
+
+                // 숫자 또는 연산자를 화면에 추가
+                display.value += value;
+            });
+
+            // 계산 함수
+            function calculate() {
+                // 입력값이 없으면 계산하지 않음
+                if (display.value === "") {
+                    return;
+                }
+
+                // 마지막 글자가 연산자이면 계산하지 않음
+                let lastchar = display.value[display.value.length - 1];
+
+                if (oper.includes(lastchar)) {
+                    return;
+                }
+
+                // 식을 숫자와 연산자로 분리
+                // 예: "2+3*4" -> ["2", "+", "3", "*", "4"]
+                let arr = display.value.split(/([+\-*/])/);
+
+                // 1단계: *, / 먼저 계산
+                for (let i = 1; i < arr.length; i += 2) {
+                    if (arr[i] === "*" || arr[i] === "/") {
+                        let left = Number(arr[i - 1]);
+                        let right = Number(arr[i + 1]);
+                        let result = 0;
+
+                        switch (arr[i]) {
+                            case "*":
+                                result = left * right;
+                                break;
+
+                            case "/":
+                                result = left / right;
+                                break;
+                        }
+
+                        // 계산한 결과를 기존 배열에 다시 넣기
+                        // 예: ["2", "+", "3", "*", "4"]
+                        // -> ["2", "+", 12]
+                        arr.splice(i - 1, 3, result);
+
+                        // 배열 길이가 줄었으므로 i를 뒤로 돌림
+                        i -= 2;
+                    }
+                }
+
+                // 2단계: +, - 계산
+                let result = Number(arr[0]);
+
+                for (let i = 1; i < arr.length; i += 2) {
+                    let right = Number(arr[i + 1]);
+
+                    switch (arr[i]) {
+                        case "+":
+                            result = result + right;
+                            break;
+
+                        case "-":
+                            result = result - right;
+                            break;
+                    }
+                }
+
+                // 결과 출력
+                display.value = result;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>계산기</h2>
+
+    <div style="border: 1px solid; width: 140px; padding: 5px;">
+        <input type="text" size="13" readonly style="text-align: right;" id="display">
+
+        <br><br>
+
+        <div class="buttons">
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button value="+">+</button><br>
+
+            <button value="4">4</button>
+            <button value="5">5</button>
+            <button value="6">6</button>
+            <button value="-">-</button><br>
+
+            <button value="7">7</button>
+            <button value="8">8</button>
+            <button value="9">9</button>
+            <button value="*">*</button><br>
+
+            <button value="0">0</button>
+            <button value="c">c</button>
+            <button value="=">=</button>
+            <button value="/">/</button>
+        </div>
+    </div>
+</body>
+</html>
